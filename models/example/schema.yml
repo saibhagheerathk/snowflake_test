@@ -14,7 +14,7 @@ models:
           column_name: order_id
       - not_null:
           column_name: order_id
-      - relationships:            # FK check
+      - relationships: # FK check
           to: ref('stg_customers')
           field: customer_id
           column_name: customer_id
