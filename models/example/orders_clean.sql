@@ -2,5 +2,5 @@
 {{ config(materialized='view') }}
 
 select *
-from {{ source('raw', 'orders') }}
+from {{ source('raw_snowflake', 'orders') }}
 
