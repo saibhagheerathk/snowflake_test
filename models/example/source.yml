@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw_snowflake               # logical name
+    database: SAI_DEV_TEST            # your real DB
+    schema: TEST_SCHEMA               # your real schema
+    tables:
+      - name: customers               # SAI_DEV_TEST.TEST_SCHEMA.CUSTOMERS
+      - name: orders                  # SAI_DEV_TEST.TEST_SCHEMA.ORDERS

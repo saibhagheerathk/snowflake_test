@@ -1,21 +1,20 @@
-
 version: 2
 
 models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+  - name: stg_customers
+    tests:
+      - unique:
+          column_name: customer_id
+      - not_null:
+          column_name: customer_id
 
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+  - name: stg_orders
+    tests:
+      - unique:
+          column_name: order_id
+      - not_null:
+          column_name: order_id
+      - relationships:            # FK check
+          to: ref('stg_customers')
+          field: customer_id
+          column_name: customer_id
